@@ -5,6 +5,7 @@ finding a short spanning walk throw a connected graph (NP-HARD problem)
 After using various algorithms and testing them on big data, I was able to provide an algorithm that returns a very good and short answer.  
 Algorithms that I used in order and the result of each of them in a graph with 15000 vertices and 52000 edges:  
 (Algorithm : length of the path found)  
+
 1- Simple DFS : more than 28000  
 
 2- Optimized DFS  : more than 24000  
