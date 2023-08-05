@@ -21,4 +21,4 @@ Algorithms that I used in order and the result of each of them in a graph with 1
 # Result
 The best method is method 6  
 Since there were about 2000 leaves in this graph and we had 14,000 vertices, so the shortest spannig walk will definitely not be less than 16,000
-The value returned by Algorithm 6 is very close to this number wich is 18000  
+The value returned by Algorithm 6 is very close to this number which is 18000  
