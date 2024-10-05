@@ -1,4 +1,4 @@
-# Graph_Theory
+# Finding a Short Spanning Walk in a Connected Graph (NP-Hard Problem) 
 finding a short spanning walk throw a connected graph (NP-HARD problem)
 
 # Approach
