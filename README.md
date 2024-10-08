@@ -1,24 +1,47 @@
-# Finding a Short Spanning Walk in a Connected Graph (NP-Hard Problem) 
-finding a short spanning walk throw a connected graph (NP-HARD problem)
+# Finding a Short Spanning Walk in a Connected Graph (NP-Hard Problem)
 
-# Approach
-After using various algorithms and testing them on big data, I was able to provide an algorithm that returns a very good and short answer.  
-Algorithms that I used in order and the result of each of them in a graph with 15000 vertices and 52000 edges:  
-(Algorithm : length of the path found)  
+This repository contains an implementation of algorithms designed to find a short spanning walk in a connected graph, a classic NP-hard problem. The project explores various algorithmic approaches and evaluates their performance on large datasets.
 
-1- Simple DFS : more than 28000  
+## Problem Overview
 
-2- Optimized DFS  : more than 24000  
+The task is to find a spanning walk that visits all vertices in a connected graph while minimizing the total path length. Given the NP-hard nature of this problem, we implemented several algorithms and tested them to determine their effectiveness.
 
-3- Simple BFS : more than 28000  
+## Approach
 
-4- Using both DFS and BFS so that first we used DFS to go deep, and to return instead of following the route, we found the shortest path using BFS and we were coming back: more than 28000  
+After extensive testing of various algorithms on a dataset consisting of a graph with **15,000 vertices** and **52,000 edges**, the following methods were applied:
 
-5- Using the greedy algorithm to order the vertices in such a way that we start from one vertex and go to the nearest unseen vertex using BFS and repeat this process : more than 20000  
+### Algorithms Used
 
-6- Using method 5, but this time, based on the degree of each vertex, we go to the nearest vertex that has a smaller degree among the other nearest vertices : around 18000  
+1. **Simple Depth-First Search (DFS)**  
+   - **Result:** Path length greater than **28,000**  
+   - **Description:** This algorithm explores as far as possible along each branch before backtracking, but does not guarantee an efficient path.
 
-# Result
-The best method is method 6  
-Since there were about 2000 leaves in this graph and we had 14,000 vertices, so the shortest spannig walk will definitely not be less than 16,000
-The value returned by Algorithm 6 is very close to this number which is 18000  
+2. **Optimized Depth-First Search**  
+   - **Result:** Path length greater than **24,000**  
+   - **Description:** This variation of DFS incorporates heuristic optimizations to improve efficiency over the basic DFS.
+
+3. **Simple Breadth-First Search (BFS)**  
+   - **Result:** Path length greater than **28,000**  
+   - **Description:** BFS explores all neighbors at the present depth prior to moving on to nodes at the next depth level, but also lacks efficiency in spanning all vertices.
+
+4. **Combined DFS and BFS**  
+   - **Result:** Path length greater than **28,000**  
+   - **Description:** In this method, we use DFS to traverse deep into the graph initially. Given that the edges are unweighted, we utilize BFS to find the shortest path back instead of Dijkstra's algorithm, which is typically used for weighted graphs. However, this approach also results in an inefficient walk overall.
+
+5. **Greedy Algorithm (Basic Version)**  
+   - **Result:** Path length greater than **20,000**  
+   - **Description:** This approach involves starting from a vertex and repeatedly moving to the nearest unseen vertex using BFS. This method improves efficiency but still does not yield the optimal solution.
+
+6. **Degree-Based Greedy Algorithm**  
+   - **Result:** Path length of approximately **18,000**  
+   - **Description:** This method refines the greedy approach by prioritizing vertices based on their degree. It selects the nearest vertex with the smallest degree among the nearest unseen vertices, significantly improving the outcome.
+
+## Results
+
+The best performing method was the **Degree-Based Greedy Algorithm**, which produced a path length of approximately **18,000**. Given the presence of about **2,000 leaves** in the graph and **14,000 vertices**, the theoretical lower bound for the shortest spanning walk is no less than **16,000**. The result from this algorithm is very close to this theoretical lower bound, demonstrating its effectiveness.
+
+## Conclusion
+
+This project provides insights into various algorithmic strategies for solving the NP-hard problem of finding a short spanning walk in a connected graph. The Degree-Based Greedy Algorithm shows significant promise in terms of efficiency and effectiveness.
+
+
